@@ -13,8 +13,7 @@ class CacheCustomisation extends DynamicCacheExtension implements flushable {
             $enabled = false;
         }
 
-        // Disable caching for this request if we have a message to display
-        // or the request shouldn't be cached for other reasons
+        // If there is session data then lets not go there ... 
         else {
             $session = Session::get_al();
             if($session && count($session)) {
