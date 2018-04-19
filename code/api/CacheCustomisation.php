@@ -1,6 +1,6 @@
 <?php
 
-class CacheCustomisation extends DynamicCacheExtension implements flushable {
+class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements flushable {
 
     public function updateEnabled(&$enabled) {
         
