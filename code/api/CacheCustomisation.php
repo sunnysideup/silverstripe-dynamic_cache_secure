@@ -3,6 +3,7 @@
 class CacheCustomisation extends DynamicCacheExtension implements flushable {
 
     public function updateEnabled(&$enabled) {
+        
         // Disable caching for this request if a user is logged in
         if (Member::currentUserID()) {
             $enabled = false;
