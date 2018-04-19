@@ -14,7 +14,7 @@ class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements fl
             $enabled = false;
         }
 
-        // If there is session data then lets not go there ... 
+        // Disable caching if the request is in dev mode
         else {
             $session = Session::get_all();
             if($session && count($session)) {
