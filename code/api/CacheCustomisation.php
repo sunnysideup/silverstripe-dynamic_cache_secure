@@ -16,7 +16,7 @@ class CacheCustomisation extends DynamicCacheExtension implements flushable {
 
         // If there is session data then lets not go there ... 
         else {
-            $session = Session::get_al();
+            $session = Session::get_all();
             if($session && count($session)) {
                 $enabled = false;
             }
