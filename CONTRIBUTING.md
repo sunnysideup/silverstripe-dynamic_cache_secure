@@ -1,4 +1,4 @@
-# Contributing to dynamic_cache_secure
+# Contributing to dynamic cache secure
 
 Please read the
 [generic write up for contributing](https://docs.silverstripe.org/en/4.0/contributing/)
