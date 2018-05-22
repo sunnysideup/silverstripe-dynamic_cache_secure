@@ -1,8 +1,9 @@
 <?php
 
-class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements flushable {
-
-    public function updateEnabled(&$enabled) {
+class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements flushable
+{
+    public function updateEnabled(&$enabled)
+    {
         
         // Disable caching for this request if a user is logged in
         if (Member::currentUserID()) {
@@ -17,13 +18,14 @@ class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements fl
         // Disable caching if the request is in dev mode
         else {
             $session = Session::get_all();
-            if($session && count($session)) {
+            if ($session && count($session)) {
                 $enabled = false;
             }
         }
     }
 
-    public static function flush() {
+    public static function flush()
+    {
         DynamicCache::inst()->clear();
     }
 }
