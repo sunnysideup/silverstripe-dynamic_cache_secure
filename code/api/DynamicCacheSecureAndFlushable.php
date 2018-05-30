@@ -1,10 +1,9 @@
 <?php
 
-class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements flushable
+class DynamicCacheSecureAndFlushable extends Extension implements flushable
 {
     public function updateEnabled(&$enabled)
     {
-        
         // Disable caching for this request if a user is logged in
         if (Member::currentUserID()) {
             $enabled = false;
@@ -22,6 +21,11 @@ class DynamicCacheSecureAndFlushable extends DynamicCacheExtension implements fl
                 $enabled = false;
             }
         }
+    }
+
+    public function updateCacheKeyFragments(array &$fragments)
+    {
+        $fragments[] = Member::currentUserID();
     }
 
     public static function flush()
